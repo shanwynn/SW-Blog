@@ -13,7 +13,7 @@ var blogObject = {};
       blogObject[field.name] = field.value;
     });
 
-    post.forEach(function (blog) {
+    post.forEach(function (field) {
       blogObject[blog.name] = field.value;
     });
 
