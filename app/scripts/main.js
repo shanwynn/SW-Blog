@@ -39,7 +39,7 @@ var blogObject = {};
       return blogTemplate(post);
     });
 
-    $('.blog-post-area').html(finishedTemplates);
+    $('.blog-container').html(finishedTemplates);
   });
 }, 1000);
 });
