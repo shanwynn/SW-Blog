@@ -1,4 +1,4 @@
-var blogTemplate = _.template($('.blog-posts').html());
+var template = _.template($('.blog-posts').html());
 
 var apiUrl = "http://tiny-pizza-server.herokuapp.com/collections/SW-Blog";
 
@@ -34,7 +34,7 @@ var blogObject = {};
         prevCount = blogPosts.length;
 
     var finishedTemplates = _.map(blogPosts, function (post) {
-      return blogTemplate(post);
+      return template(post);
     });
 
     $('.blog-output').html(finishedTemplates);
