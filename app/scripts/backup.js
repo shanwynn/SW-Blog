@@ -1,8 +1,6 @@
-var blogTemplate = _.template($('.blog-posts').html());
-var postCountTemplate = _.template($('.user-sidebar-template').html());
-
+/*var blogTemplate = _.template($('.blog-output-template').html());*/
+$('.blog-posts').html( (_.template( $('.blog-post-area').html() ))(postObject) );
 var apiUrl = "http://tiny-pizza-server.herokuapp.com/collections/SW-Blog";
-var blogObject = {};
 
   $('input[type=submit]').on('click', function (event) {
     event.preventDefault();
@@ -14,7 +12,7 @@ var blogObject = {};
       url: apiUrl,
       data: { title : 'Blog Title',
               post: 'Blog Post',
-              date: new Date()
+              sentAt: new Date()
               }
     }).done(function (data) {
       $('input.field').val('');
