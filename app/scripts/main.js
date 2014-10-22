@@ -20,7 +20,8 @@ var blogObject = {};
     $.ajax({
       method: 'POST',
       url: apiUrl,
-      data: blogObject
+      data: blogObject,
+      date: new Date()
     }).done(function (data) {$('input.field').val(' ');
     });
   });
@@ -36,7 +37,7 @@ var blogObject = {};
       return blogTemplate(post);
     });
 
-    $('.blog-container').html(finishedTemplates);
+    $('.blog-output').html(finishedTemplates);
   });
 }, 1000);
 });
