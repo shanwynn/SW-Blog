@@ -7,33 +7,43 @@ var blogObject = {};
   $('input[type=submit]').on('click', function (event) {
     event.preventDefault();
 
-    console.log(blogPosts);
+var title =  $('input.field').serializeArray();
+var post =  $('textarea.field').serializeArray();
+var date = new Date ();
+    blogObject['date'] = date;
+
+    title.forEach(function (title) {
+      blogObject[title.name] = title.value;
+    });
+
+    post.forEach(function (post) {
+      blogObject[post.name] = post.value;
+    });
 
     $.ajax({
       method: 'POST',
       url: apiUrl,
-      data: { title : 'Blog Title',
-              post: 'Blog Post',
-              date: new Date()
-              }
-    }).done(function (data) {
-      $('input.field').val('');
+      data: blogObject
+    }).done(function (data) {$('input.field').val('');
     });
   });
 
-  var prevCount = 0;
+    $.ajax( {url: apiUrl} ).done(function (posts) {
 
-  setInterval(function () {
+    });
+
+
+/*  setInterval(function () {
     $.ajax( {url: apiUrl} ).done(function (blogPosts) {
       if(blogPosts.length > prevCount) {
         console.log(blogPosts);
         prevCount = blogPosts.length;
-
-        var finishedTemplates = _.map(blogPosts, function (post) {
-          return blogTemplate(post);
-        });
-
-        $('.post-output').html(finishedTemplates);
-      }
+*/
+    var finishedTemplates = _.map(posts, function (post) {
+      return blogTemplate(post);
     });
-  }, 1000);
+
+    $('.post-output').html(finishedTemplates);
+  });
+}, 1000);
+});
