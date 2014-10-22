@@ -5,10 +5,7 @@ var apiUrl = "http://tiny-pizza-server.herokuapp.com/collections/SW-Blog";
   $('input[type=submit]').on('click', function (event) {
     event.preventDefault();
 
-var title =  $('input.field').serializeArray();
-var post =  $('textarea.blog').serializeArray();
-var date = new Date ();
-    blogObject['date'] = date;
+var fieldValues =  $('input.field').serializeArray();
 
 var blogObject = {};
 
@@ -17,7 +14,7 @@ var blogObject = {};
     });
 
     post.forEach(function (blog) {
-      blogObject[blog.name] = blog.value;
+      blogObject[blog.name] = field.value;
     });
 
     $.ajax({
