@@ -22,6 +22,8 @@
     <!-- endbuild -->
   </head>
   <body>
+  <section>
+  <article>
     <h1>Shannon's Blog</h1>
       <div class="blog-container">
       </div>
@@ -33,7 +35,7 @@
           </div>
           <div class = "post-area">
             <label for="post"><strong class="entry">Post your blog entry here: </strong></label>
-            <textarea class="field" rows="4" cols="50" placeholder="Type here"></textarea>
+            <textarea class="field" name="post" rows="4" cols="50" placeholder="Type here"></textarea>
           </div>
           <div class="post-button">
             <input class="send" type="submit" value="POST" />
@@ -41,11 +43,12 @@
         </form>
       </div>
     </div>
-
+  </article>
     <div class="main-container">
       <div class="blog-output"></div>
     </div>
   <!-- this is the blog output template -->
+  <aside>
   <script type="text/template" class="blog-posts">
     <div class="blog-post-area">
       <p class="blog-title"><%= title %></p>
@@ -53,6 +56,8 @@
       <p class="blog-output-date"><%= date %></p>
       <hr />
     </div>
+  </aside>
+  </section>
       <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
   </script>

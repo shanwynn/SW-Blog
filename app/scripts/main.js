@@ -2,42 +2,46 @@ var template = _.template($('.blog-posts').html());
 
 var apiUrl = "http://tiny-pizza-server.herokuapp.com/collections/SW-Blog";
 
-  $('input[type=submit]').on('click', function (event) {
-    event.preventDefault();
+var BlogPost = function (attributes) {
+    return _.extend({
+      date: new Date(),
+      title: 'title',
+      post: 'post goes here'
+    }, attributes);
+};
 
-var fieldValues =  $('input.field').serializeArray();
+$('input[type=submit]').on('click', function (event) {
+  event.preventDefault();
 
-var blogObject = {};
+  var fieldValues = $('input.field, textarea.field').serializeArray();
 
-    title.forEach(function (field) {
+  var blogObject = new BlogPost();
+
+  fieldValues.forEach(function (field) {
       blogObject[field.name] = field.value;
-    });
+  });
 
-    post.forEach(function (field) {
-      blogObject[blog.name] = field.value;
-    });
-
-    $.ajax({
+  $.ajax({
       method: 'POST',
       url: apiUrl,
-      data: blogObject,
-      date: new Date()
-    }).done(function (data) {$('input.field').val(' ');
-    });
+      data: blogObject
+  }).done(function (data) {
+    $('input.field, textarea.field').val(' ');
   });
 
-  var previousCount = 0;
+});
 
-  setInterval(function () {
-    $.ajax( {url: apiUrl} ).done(function (blogPosts) {
-      if(blogPosts.length > prevCount) {
+var prevCount = 0;
+setInterval(function () {
+  $.ajax( {url: apiUrl} ).done(function (blogPosts) {
+    if(blogPosts.length > prevCount) {
         prevCount = blogPosts.length;
 
-    var finishedTemplates = _.map(blogPosts, function (post) {
-      return template(post);
-    });
+        var finishedTemplates = _.map(blogPosts, function (post) {
+          return template(new BlogPost(post));
+        });
 
-    $('.blog-output').html(finishedTemplates);
-  });
-}, 1000);
+        $('.blog-output').html(finishedTemplates);
+    }
 });
+}, 1000);
