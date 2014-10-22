@@ -24,7 +24,7 @@ var blogObject = {};
       method: 'POST',
       url: apiUrl,
       data: blogObject
-    }).done(function (data) {$('input.field').val('');
+    }).done(function (data) {$('input.field').val(' ');
     });
   });
 
