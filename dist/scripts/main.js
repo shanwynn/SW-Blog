@@ -1,6 +1,6 @@
 var template = _.template($('.blog-posts').html());
 
-var apiUrl = "http://tiny-pizza-server.herokuapp.com/collections/SW-Blog";
+var apiUrl = "https://tiny-pizza-server.herokuapp.com/collections/SW-Blog";
 
 var BlogPost = function (attributes) {
     return _.extend({
