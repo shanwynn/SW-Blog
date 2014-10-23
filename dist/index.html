@@ -16,49 +16,50 @@
 
   </head>
   <body>
-  <section>
-  <article>
-    <h1>Shannon's Blog</h1>
-      <div class="blog-container">
+    <section>
+      <article>
+        <h1>Shannon's Blog</h1>
+          <div class="blog-container">
+          </div>
+          <div class="blog-post">
+            <form class="newPost">
+              <div class = "title-bar">
+                <label for="title"><strong>Give your post a title: </strong></label>
+                <input class="field" type="text" placeholder="Title." name="title" />
+              </div>
+              <div class = "post-area">
+                <label for="post"><strong class="entry">Post your blog entry here: </strong></label>
+                <textarea class="field" name="post" rows="4" cols="50" placeholder="Type here"></textarea>
+              </div>
+              <div class="post-button">
+                <input class="send" type="submit" value="POST" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </article>
+      <div class="main-container">
+        <div class="blog-output"></div>
       </div>
-      <div class="blog-post">
-        <form class="newPost">
-          <div class = "title-bar">
-            <label for="title"><strong>Give your post a title: </strong></label>
-            <input class="field" type="text" placeholder="Title." name="title" />
-          </div>
-          <div class = "post-area">
-            <label for="post"><strong class="entry">Post your blog entry here: </strong></label>
-            <textarea class="field" name="post" rows="4" cols="50" placeholder="Type here"></textarea>
-          </div>
-          <div class="post-button">
-            <input class="send" type="submit" value="POST" />
-          </div>
-        </form>
-      </div>
-    </div>
-  </article>
-    <div class="main-container">
-      <div class="blog-output"></div>
-    </div>
-  <!-- this is the blog output template -->
-  <aside>
-  <script type="text/template" class="blog-posts">
-    <div class="blog-post-area">
-      <p class="blog-title"><%= title %></p>
-      <p class="blog-post"><%= post %></p>
-      <p class="blog-output-date"><%= date %></p>
-      <hr />
-    </div>
-  </aside>
-  </section>
+    <!-- this is the blog output template -->
+      <aside></aside>
+    </section>
+
+  <footer>
+    <p>&copy;2014</p>
+  </footer>
 
 
-  <script src="scripts/vendor.js"></script>
+<script type="text/template" class="blog-posts">
+  <div class="blog-post-area">
+    <p class="blog-title"><%= title %></p>
+    <p class="blog-post"><%= post %></p>
+    <p class="blog-output-date"><%= date %></p>
+    <hr />
+  </div>
+</script>
+<script src="scripts/vendor.js"></script>
 
-  <script src="scripts/main.js"></script>
-<footer>
-  <p>&copy;2014</p>
-</footer>
+<script src="scripts/main.js"></script>
 </body>
 </html>
