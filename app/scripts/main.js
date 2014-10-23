@@ -43,5 +43,5 @@ setInterval(function () {
 
         $('.blog-output').html(finishedTemplates);
     }
-});
+  });
 }, 1000);
